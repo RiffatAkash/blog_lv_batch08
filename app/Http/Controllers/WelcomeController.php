@@ -13,7 +13,24 @@ class WelcomeController extends Controller
      */
     public function index()
     {
-        return view('master');
+        $home_content=view('pages.home_content');
+        $sidebar=1;
+        return view('master')->with('main_content',$home_content)
+                              ->with('sidebar',$sidebar);
+    }
+    public function contact()
+    {
+        $contact=view('pages.contact');
+        $sidebar=0;
+        return view('master')->with('contact',$contact)
+                             ->with('sidebar',$sidebar);
+    }
+    public function blog_details()
+    {
+        $blog_details=view('pages.blog_details');
+        $sidebar=0;
+        return view('master')->with('blog_details',$blog_details)
+                             ->with('sidebar',$sidebar);
     }
 
     /**
